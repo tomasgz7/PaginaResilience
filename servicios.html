@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script
+      src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js"
+      defer
+      init
+    ></script>
+    <script type="text/javascript">
+      window.tailwind.config = {
+        darkMode: ["class"],
+        theme: {
+          extend: {
+            colors: {
+              border: "hsl(var(--border))",
+              input: "hsl(var(--input))",
+              ring: "hsl(var(--ring))",
+              background: "hsl(var(--background))",
+              foreground: "hsl(var(--foreground))",
+              primary: {
+                DEFAULT: "hsl(var(--primary))",
+                foreground: "hsl(var(--primary-foreground))",
+              },
+              secondary: {
+                DEFAULT: "hsl(var(--secondary))",
+                foreground: "hsl(var(--secondary-foreground))",
+              },
+              destructive: {
+                DEFAULT: "hsl(var(--destructive))",
+                foreground: "hsl(var(--destructive-foreground))",
+              },
+              muted: {
+                DEFAULT: "hsl(var(--muted))",
+                foreground: "hsl(var(--muted-foreground))",
+              },
+              accent: {
+                DEFAULT: "hsl(var(--accent))",
+                foreground: "hsl(var(--accent-foreground))",
+              },
+              popover: {
+                DEFAULT: "hsl(var(--popover))",
+                foreground: "hsl(var(--popover-foreground))",
+              },
+              card: {
+                DEFAULT: "hsl(var(--card))",
+                foreground: "hsl(var(--card-foreground))",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer base {
+        :root {
+          --background: 0 0% 100%;
+          --foreground: 240 10% 3.9%;
+          --card: 0 0% 100%;
+          --card-foreground: 240 10% 3.9%;
+          --popover: 0 0% 100%;
+          --popover-foreground: 240 10% 3.9%;
+          --primary: 240 5.9% 10%;
+          --primary-foreground: 0 0% 98%;
+          --secondary: 240 4.8% 95.9%;
+          --secondary-foreground: 240 5.9% 10%;
+          --muted: 240 4.8% 95.9%;
+          --muted-foreground: 240 3.8% 46.1%;
+          --accent: 240 4.8% 95.9%;
+          --accent-foreground: 240 5.9% 10%;
+          --destructive: 0 84.2% 60.2%;
+          --destructive-foreground: 0 0% 98%;
+          --border: 240 5.9% 90%;
+          --input: 240 5.9% 90%;
+          --ring: 240 5.9% 10%;
+          --radius: 0.5rem;
+        }
+        .dark {
+          --background: 240 10% 3.9%;
+          --foreground: 0 0% 98%;
+          --card: 240 10% 3.9%;
+          --card-foreground: 0 0% 98%;
+          --popover: 240 10% 3.9%;
+          --popover-foreground: 0 0% 98%;
+          --primary: 0 0% 98%;
+          --primary-foreground: 240 5.9% 10%;
+          --secondary: 240 3.7% 15.9%;
+          --secondary-foreground: 0 0% 98%;
+          --muted: 240 3.7% 15.9%;
+          --muted-foreground: 240 5% 64.9%;
+          --accent: 240 3.7% 15.9%;
+          --accent-foreground: 0 0% 98%;
+          --destructive: 0 62.8% 30.6%;
+          --destructive-foreground: 0 0% 98%;
+          --border: 240 3.7% 15.9%;
+          --input: 240 3.7% 15.9%;
+          --ring: 240 4.9% 83.9%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="relative bg-background shadow-md overflow-hidden h-24">
+      <!-- Contenido del navbar -->
+      <div
+        class="container mx-auto flex justify-between items-center p-4 relative z-10"
+      >
+        <a href="index.html">
+          <img
+            src="/icon/Resiilience-BLANCO.png"
+            alt="RESILIENCE Logo"
+            class="max-w-full h-20 w-auto object-contain scale-150 hidden dark:block"
+          />
+          <img
+            src="/icon/Resiilience-NEGRO.png"
+            alt="RESILIENCE Logo"
+            class="max-w-full h-20 w-auto object-contain scale-150 block dark:hidden"
+          />
+        </a>
+        <ul class="flex space-x-6">
+          <li>
+            <a
+              href="index.html"
+              class="text-lg text-muted-foreground hover:text-blue-700"
+              >Inicio</a
+            >
+          </li>
+          <li>
+            <a
+              href="nosotros.html"
+              class="text-lg text-muted-foreground hover:text-blue-700"
+              >Nosotros</a
+            >
+          </li>
+          <li>
+            <a
+              href="servicios.html"
+              class="text-lg text-muted-foreground hover:text-blue-700"
+              >Servicios</a
+            >
+          </li>
+          <li>
+            <a
+              href="contacto.html"
+              class="text-lg text-muted-foreground hover:text-blue-700"
+              >Contacto</a
+            >
+          </li>
+        </ul>
+        <a
+          href="https://wa.me/5491131697768"
+          class="navbar-whatsapp link-animation relative overflow-hidden bg-secondary text-secondary-foreground px-4 py-2 rounded-lg flex items-center gap-2 transform transition-transform duration-300 hover:scale-105"
+          target="_blank"
+        >
+          <img
+            src="icon/whatsappnavbarblue.png"
+            alt="WhatsApp Logo"
+            class="h-5 w-5 whatsapp-icon"
+          />
+          ¿Hablamos?
+        </a>
+
+        <!-- Botón de cambio de tema -->
+        <button
+          id="theme-toggle"
+          class="text-foreground dark:text-white bg-transparent px-4 py-2 rounded-lg flex items-center gap-2"
+        >
+          <img
+            id="sun-icon"
+            src="icon/icons8-sol-48.png"
+            alt="Sun Icon"
+            class="h-6 w-6 transition-transform duration-500"
+          />
+          <img
+            id="moon-icon"
+            src="icon/icon-moon.png"
+            alt="Moon Icon"
+            class="h-5 w-5 hidden dark:block transition-transform duration-500"
+          />
+        </button>
+
+        <style>
+          /* CSS para la animación de rotación */
+          .rotate {
+            transition: transform 0.5s;
+            transform: rotate(360deg);
+          }
+        </style>
+
+        <style>
+          /* Base for the WhatsApp link in navbar */
+          .navbar-whatsapp {
+            position: relative;
+            z-index: 1;
+            color: #ffffff; /* Default text color */
+          }
+
+          .navbar-whatsapp:hover::before {
+            background-color: #0026ff !important; /* Red background for WhatsApp in navbar */
+          }
+
+          .navbar-whatsapp:hover {
+            color: #ffffff !important; /* White text on red background */
+          }
+
+          .navbar-whatsapp:hover .whatsapp-icon {
+            filter: brightness(0) invert(1); /* Change icon to white */
+          }
+        </style>
+      </div>
+    </nav>
+    <div class="relative overflow-hidden">
+      
+      <div class="container mx-auto py-10 text-center relative z-10">
+        <h1 class="text-3xl font-bold mb-4">Tu negocio tiene que tener una <span class="text-red-500">Web que venda</span></h1>
+        <p class="text-lg text-muted-foreground mb-8">Diseñamos y desarrollamos interfaces web modernas, 100% responsive y acordes a los últimos estándares en tecnología cross-browser.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-card p-6 rounded-lg shadow-lg">
+            <img aria-hidden="true" alt="Landing Page Icon" src="https://openui.fly.dev/openui/100x100.svg?text=📄" />
+            <h2 class="text-xl font-semibold mt-4">Landing Page</h2>
+            <p class="text-muted-foreground">Obtendrás una plataforma en la que podrás cumplir con las metas de tu negocio y captar muchos leads.</p>
+          </div>
+    
+          <div class="bg-card p-6 rounded-lg shadow-lg">
+            <img aria-hidden="true" alt="Web Page Icon" src="https://openui.fly.dev/openui/100x100.svg?text=🌐" />
+            <h2 class="text-xl font-semibold mt-4">Página Web</h2>
+            <p class="text-muted-foreground">Tener un lugar en Internet es cada día más importante. Si tu empresa no tiene un sitio web no existe para un sector muy grande de consumidores.</p>
+          </div>
+    
+          <div class="bg-card p-6 rounded-lg shadow-lg">
+            <img aria-hidden="true" alt="E-commerce Page Icon" src="https://openui.fly.dev/openui/100x100.svg?text=🛒" />
+            <h2 class="text-xl font-semibold mt-4">Página Web e-commerce</h2>
+            <p class="text-muted-foreground">Diseñamos y desarrollamos tu web con E-commerce en múltiples plataformas, con sistema de catálogo y carrito para compras online.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <section class="py-10 text-center">
+      <h2 class="text-2xl font-bold mb-4">¿Cómo lo hacemos?</h2>
+      <p class="text-lg text-muted-foreground mb-8">
+        Si buscás un diseño web de calidad que combine cientos de elementos visuales diferentes, podemos ayudarte. No sólo creamos páginas web, comunicamos ideas, valores e imagen, logramos que la web de
+        tu empresa venda.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-card p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold">Primera etapa</h3>
+          <p class="text-muted-foreground">
+            Todo comienza cuando nos transmitís los detalles de tu negocio. Visión, valores, filosofía y todos los requerimientos técnicos que componen la esencia de tu proyecto.
+          </p>
+        </div>
+    
+        <div class="bg-card p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold">Segunda etapa</h3>
+          <p class="text-muted-foreground">
+            Nuestro equipo de diseñadores y creativos se ponen manos a la obra para dar vida a las primeras ideas de cómo debe ser el proyecto en términos de estructura, diseño y funcionalidad.
+          </p>
+        </div>
+    
+        <div class="bg-card p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold">Tercera etapa</h3>
+          <p class="text-muted-foreground">
+            Una vez llegado a la conclusión de cómo va a resultar el producto final, les toca el turno a nuestros programadores, los cuales convertirán el trabajo creativo en un producto de gran calidad y
+            eficiencia.
+          </p>
+        </div>
+      </div>
+    </section>
+        <nav class="mt-8">
+          <ul class="space-y-2">
+            <!-- Gmail -->
+            <li>
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=groupresiliencemedia@gmail.com"
+                class="link-animation relative overflow-hidden bg-secondary text-secondary-foreground px-4 py-2 rounded-lg flex items-center gap-2 transform transition-transform duration-300 hover:scale-105"
+                target="_blank"
+              >
+                <img
+                  src="icon/gmail-logo.png"
+                  alt="Gmail Icon"
+                  class="w-5 h-5"
+                />
+                Contactar ahora →
+              </a>
+            </li>
+
+            <!-- WhatsApp -->
+            <li>
+              <a
+                href="https://wa.me/5491131697768"
+                class="link-animation relative overflow-hidden bg-secondary text-secondary-foreground px-4 py-2 rounded-lg flex items-center gap-2 transform transition-transform duration-300 hover:scale-105"
+                target="_blank"
+              >
+                <img
+                  src="icon/whatsicon.png"
+                  alt="WhatsApp Icon"
+                  class="w-5 h-5"
+                />
+                WhatsApp →
+              </a>
+            </li>
+
+            <!-- Instagram -->
+            <li>
+              <a
+                href="https://www.instagram.com/resiliencemediagroup/"
+                class="link-animation relative overflow-hidden bg-secondary text-secondary-foreground px-4 py-2 rounded-lg flex items-center gap-2 transform transition-transform duration-300 hover:scale-105"
+                target="_blank"
+              >
+                <img
+                  src="icon/icons8-instagram-48.png"
+                  alt="Instagram Icon"
+                  class="w-5 h-5"
+                />
+                Instagram →
+              </a>
+            </li>
+
+            <!-- Home -->
+            <li>
+              <a
+                href="index.html"
+                class="link-animation relative overflow-hidden bg-secondary text-secondary-foreground px-4 py-2 rounded-lg flex items-center gap-2 transform transition-transform duration-300 hover:scale-105"
+              >
+                <img
+                  src="icon/icons8-casa-30.png"
+                  alt="Home Icon"
+                  class="w-5 h-5"
+                />
+                Volver al Inicio →
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <style>
+          /* Base for all links */
+          .link-animation {
+            position: relative;
+            z-index: 1;
+            color: #ffffff; /* Default text color */
+          }
+
+          /* Create the expanding background effect with ::before */
+          .link-animation::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: transparent;
+            transition: width 0.4s ease, background-color 0.4s ease;
+            z-index: -1; /* Sit behind the text */
+          }
+
+          /* On hover, expand the background fully and change the text color */
+          .link-animation:hover::before {
+            width: 100%;
+          }
+
+          /* Gmail specific styling */
+          a[href*="mail.google.com"]:hover::before {
+            background-color: #ea4335; /* Gmail Red */
+          }
+
+          a[href*="mail.google.com"]:hover {
+            color: #ffffff; /* Ensure text is white on Gmail red */
+          }
+
+          /* WhatsApp specific styling */
+          a[href*="wa.me"]:hover::before {
+            background-color: #25d366; /* WhatsApp Green */
+          }
+
+          a[href*="wa.me"]:hover {
+            color: #ffffff; /* Ensure text is white on WhatsApp green */
+          }
+
+          /* Instagram specific styling */
+          a[href*="instagram.com"]:hover::before {
+            background-color: #e1306c; /* Instagram Pink */
+          }
+
+          a[href*="instagram.com"]:hover {
+            color: #ffffff; /* Ensure text is white on Instagram pink */
+          }
+
+          /* Home specific styling */
+          a[href="index.html"]:hover::before {
+            background-color: #000000; /* Black for Home */
+          }
+
+          a[href="index.html"]:hover {
+            color: #ffffff; /* Ensure text is white on black */
+          }
+        </style>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

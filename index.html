@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script
+      src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js"
+      defer
+      init
+    ></script>
+    <script type="text/javascript">
+      window.tailwind.config = {
+        darkMode: ["class"],
+        theme: {
+          extend: {
+            colors: {
+              border: "hsl(var(--border))",
+              input: "hsl(var(--input))",
+              ring: "hsl(var(--ring))",
+              background: "hsl(var(--background))",
+              foreground: "hsl(var(--foreground))",
+              primary: {
+                DEFAULT: "hsl(var(--primary))",
+                foreground: "hsl(var(--primary-foreground))",
+              },
+              secondary: {
+                DEFAULT: "hsl(var(--secondary))",
+                foreground: "hsl(var(--secondary-foreground))",
+              },
+              destructive: {
+                DEFAULT: "hsl(var(--destructive))",
+                foreground: "hsl(var(--destructive-foreground))",
+              },
+              muted: {
+                DEFAULT: "hsl(var(--muted))",
+                foreground: "hsl(var(--muted-foreground))",
+              },
+              accent: {
+                DEFAULT: "hsl(var(--accent))",
+                foreground: "hsl(var(--accent-foreground))",
+              },
+              popover: {
+                DEFAULT: "hsl(var(--popover))",
+                foreground: "hsl(var(--popover-foreground))",
+              },
+              card: {
+                DEFAULT: "hsl(var(--card))",
+                foreground: "hsl(var(--card-foreground))",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer base {
+        :root {
+          --background: 0 0% 100%;
+          --foreground: 240 10% 3.9%;
+          --card: 0 0% 100%;
+          --card-foreground: 240 10% 3.9%;
+          --popover: 0 0% 100%;
+          --popover-foreground: 240 10% 3.9%;
+          --primary: 240 5.9% 10%;
+          --primary-foreground: 0 0% 98%;
+          --secondary: 240 4.8% 95.9%;
+          --secondary-foreground: 240 5.9% 10%;
+          --muted: 240 4.8% 95.9%;
+          --muted-foreground: 240 3.8% 46.1%;
+          --accent: 240 4.8% 95.9%;
+          --accent-foreground: 240 5.9% 10%;
+          --destructive: 0 84.2% 60.2%;
+          --destructive-foreground: 0 0% 98%;
+          --border: 240 5.9% 90%;
+          --input: 240 5.9% 90%;
+          --ring: 240 5.9% 10%;
+          --radius: 0.5rem;
+        }
+        .dark {
+          --background: 240 10% 3.9%;
+          --foreground: 0 0% 98%;
+          --card: 240 10% 3.9%;
+          --card-foreground: 0 0% 98%;
+          --popover: 240 10% 3.9%;
+          --popover-foreground: 0 0% 98%;
+          --primary: 0 0% 98%;
+          --primary-foreground: 240 5.9% 10%;
+          --secondary: 240 3.7% 15.9%;
+          --secondary-foreground: 0 0% 98%;
+          --muted: 240 3.7% 15.9%;
+          --muted-foreground: 240 5% 64.9%;
+          --accent: 240 3.7% 15.9%;
+          --accent-foreground: 0 0% 98%;
+          --destructive: 0 62.8% 30.6%;
+          --destructive-foreground: 0 0% 98%;
+          --border: 240 3.7% 15.9%;
+          --input: 240 3.7% 15.9%;
+          --ring: 240 4.9% 83.9%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Video de fondo -->
+    <video
+      id="background-video"
+      autoplay
+      muted
+      loop
+      class="fixed top-0 left-0 w-full h-full object-cover z-[-1]"
+    >
+      <source
+        id="video-source"
+        src="icon/3024112-hd_1920_1080_25fps.mp4"
+        type="video/mp4"
+      />
+      <!-- Video por defecto -->
+    </video>
+    <nav
+      id="navbar"
+      class="fixed top-0 left-0 w-full bg-background dark:bg-black transition-colors duration-500 h-24 z-50"
+    >
+      <!-- Contenido del navbar -->
+      <div
+        class="container mx-auto flex justify-between items-center p-4 relative z-10"
+      >
+        <a href="index.html">
+          <!-- Logo en modo claro -->
+          <img
+            src="/icon/Resiilience-NEGRO.png"
+            alt="RESILIENCE Logo"
+            class="max-w-full h-20 w-auto object-contain scale-150 dark:hidden"
+          />
+          <!-- Logo en modo oscuro -->
+          <img
+            src="/icon/Resiilience-BLANCO.png"
+            alt="RESILIENCE Logo"
+            class="max-w-full h-20 w-auto object-contain scale-150 hidden dark:block"
+          />
+        </a>
+        <ul class="flex space-x-6">
+          <ul class="flex">
+            <li class="mr-8">
+              <!-- Ajusta el margen según sea necesario -->
+              <a
+                href="index.html"
+                class="text-lg text-foreground dark:text-white hover:text-blue-700 dark:hover:text-blue-700"
+                >Inicio</a
+              >
+            </li>
+            <li class="mr-8">
+              <a
+                href="nosotros.html"
+                class="text-lg text-foreground dark:text-white hover:text-blue-700 dark:hover:text-blue-700"
+                >Nosotros</a
+              >
+            </li>
+            <li class="mr-8">
+              <a
+                href="servicios.html"
+                class="text-lg text-foreground dark:text-white hover:text-blue-700 dark:hover:text-blue-700"
+                >Servicios</a
+              >
+            </li>
+            <li>
+              <a
+                href="contacto.html"
+                class="text-lg text-foreground dark:text-white hover:text-blue-700 dark:hover:text-blue-700"
+                >Contacto</a
+              >
+            </li>
+          </ul>
+        </ul>
+        <!-- Botón de WhatsApp y de cambio de tema (día/noche) se mantienen iguales -->
+        <a
+          id="contact-button"
+          href="https://wa.me/5491131697768"
+          class="text-foreground dark:text-white bg-transparent hover:bg-blue-700 px-4 py-2 rounded-lg flex items-center gap-2 transform transition-transform duration-300 hover:scale-105"
+          target="_blank"
+        >
+          <img
+            src="icon/whatsapp icon blue.svg"
+            alt="WhatsApp Logo"
+            class="h-5 w-5"
+          />
+          ¿Hablamos?
+        </a>
+        <!-- Botón de cambio de tema -->
+        <button
+          id="theme-toggle"
+          class="text-foreground dark:text-white bg-transparent px-4 py-2 rounded-lg flex items-center gap-2"
+        >
+          <img
+            id="sun-icon"
+            src="icon/icons8-sol-48.png"
+            alt="Sun Icon"
+            class="h-6 w-6 transition-transform duration-500"
+          />
+          <img
+            id="moon-icon"
+            src="icon/icon-moon.png"
+            alt="Moon Icon"
+            class="h-5 w-5 hidden dark:block transition-transform duration-500"
+          />
+        </button>
+
+        <style>
+          /* CSS para la animación de rotación */
+          .rotate {
+            transition: transform 0.5s;
+            transform: rotate(360deg);
+          }
+        </style>
+      </div>
+    </nav>
+
+    <!-- Portada de presentación con video en bucle -->
+    <section class="relative h-screen overflow-hidden">
+      <video
+        id="background-video"
+        class="absolute top-0 left-0 w-full h-full object-cover transition duration-500"
+        src="icon/3024112-hd_1920_1080_25fps.mp4"
+        autoplay
+        loop
+        muted
+        playsinline
+      ></video>
+
+      <!-- Contenido encima del video -->
+      <div
+        class="absolute inset-0 flex flex-col items-center justify-center text-foreground dark:text-white bg-black/50 dark:bg-black/60 transition duration-500"
+      >
+        <h2 class="text-4xl font-bold mb-4">
+          Soluciones Multimedia Integrales para Impulsar Tu Negocio
+        </h2>
+        <p class="text-lg text-center max-w-2xl">
+          Diseño web, tiendas virtuales, eventos profesionales y producción
+          audiovisual de calidad.
+        </p>
+
+        <div class="mt-4 flex space-x-4">
+          <a
+            href="contacto.html"
+            class="px-6 py-2 border border-foreground dark:border-white text-foreground dark:text-white text-lg font-semibold hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white transition duration-300"
+          >
+            Solicita tu Cotización
+          </a>
+          <a
+            href="servicios.html"
+            class="px-6 py-2 border border-foreground dark:border-white text-foreground dark:text-white text-lg font-semibold hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white transition duration-300"
+          >
+            Conoce Nuestros Servicios
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div
+      class="flex flex-col items-center justify-center bg-background p-6"
+      style="background-color: #020617"
+    >
+      <h2 class="text-white text-3xl font-bold text-foreground mb-4">
+        Preguntas Frecuentes para Resilience Media Group
+      </h2>
+      <div class="w-full max-w-md space-y-4">
+        <div class="bg-card rounded-lg shadow-md">
+          <button
+            class="flex justify-between w-full p-4 text-left text-muted-foreground hover:bg-muted/10 focus:outline-none"
+            style="background-color: #0d1828"
+            onclick="toggleAnswer(this)"
+          >
+            <span>¿Qué tipo de páginas web diseñan?</span>
+            <span class="arrow">&gt;</span>
+          </button>
+          <div
+            class="hidden p-4 text-muted-foreground"
+            style="background-color: #0b1422"
+          >
+            Diseñamos páginas web personalizadas y adaptadas a las necesidades
+            de cada cliente. Desde sitios web informativos hasta tiendas en
+            línea completas, nos enfocamos en crear diseños modernos, intuitivos
+            y optimizados para todos los dispositivos.
+          </div>
+        </div>
+        <div class="bg-card rounded-lg shadow-md">
+          <button
+            class="flex justify-between w-full p-4 text-left text-muted-foreground hover:bg-muted/10 focus:outline-none"
+            style="background-color: #0d1828"
+            onclick="toggleAnswer(this)"
+          >
+            <span>¿Qué servicios incluyen en la producción de eventos?</span>
+            <span class="arrow">&gt;</span>
+          </button>
+          <div
+            class="hidden p-4 text-muted-foreground"
+            style="background-color: #0b1422"
+          >
+            Ofrecemos una amplia gama de servicios para la producción de
+            eventos, incluyendo planificación y organización, diseño de
+            escenografía, iluminación, sonido, grabación audiovisual, y gestión
+            de invitados.
+          </div>
+        </div>
+        <div class="bg-card rounded-lg shadow-md">
+          <button
+            class="flex justify-between w-full p-4 text-left text-muted-foreground hover:bg-muted/10 focus:outline-none"
+            style="background-color: #0d1828"
+            onclick="toggleAnswer(this)"
+          >
+            <span>¿Qué tipo de producciones audiovisuales realizan?</span>
+            <span class="arrow">&gt;</span>
+          </button>
+          <div
+            class="hidden p-4 text-muted-foreground"
+            style="background-color: #0b1422"
+          >
+            Realizamos producciones audiovisuales de alta calidad para diversos
+            fines, como videos corporativos, musicales, comerciales,
+            documentales, y contenido para redes sociales. Contamos con un
+            equipo de profesionales especializados en cada etapa de la
+            producción, desde la preproducción hasta la postproducción.
+          </div>
+        </div>
+        <div class="bg-card rounded-lg shadow-md">
+          <button
+            class="flex justify-between w-full p-4 text-left text-muted-foreground hover:bg-muted/10 focus:outline-none"
+            style="background-color: #0d1828"
+            onclick="toggleAnswer(this)"
+          >
+            <span
+              >¿Cómo puedo obtener un presupuesto para una tienda virtual?</span
+            >
+            <span class="arrow">&gt;</span>
+          </button>
+          <div
+            class="hidden p-4 text-muted-foreground"
+            style="background-color: #0b1422"
+          >
+            Para obtener un presupuesto personalizado, te invitamos a
+            contactarnos a través de nuestro
+            <a href="contacto.html" class="text-blue-500 hover:text-blue-700"
+              >Formulario</a
+            >
+            o por teléfono (<a
+              href="https://wa.me/5491131697768"
+              target="_blank"
+              class="text-blue-500 hover:text-blue-700"
+              >+54 9 11 3169-7768</a
+            >). Necesitaremos información sobre tus productos, características
+            deseadas para la tienda, y cualquier requerimiento especial.
+          </div>
+        </div>
+        <div class="bg-card rounded-lg shadow-md">
+          <button
+            class="flex justify-between w-full p-4 text-left text-muted-foreground hover:bg-muted/10 focus:outline-none"
+            style="background-color: #0d1828"
+            onclick="toggleAnswer(this)"
+          >
+            <span
+              >¿Cuáles son los beneficios de elegir Resilience Media Group para
+              mis proyectos?</span
+            >
+            <span class="arrow">&gt;</span>
+          </button>
+          <div
+            class="hidden p-4 text-muted-foreground"
+            style="background-color: #0b1422"
+          >
+            Al elegir Resilience Media Group, te beneficiarás de nuestra
+            experiencia, creatividad y compromiso con la excelencia. Ofrecemos
+            soluciones personalizadas, atención al cliente de primer nivel, y
+            resultados que superan las expectativas.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      /* Clase para rotar la flecha hacia abajo */
+      .rotate-90 {
+        transform: rotate(90deg);
+        transition: transform 0.3s ease;
+      }
+
+      /* Estilo normal de la flecha */
+      .arrow {
+        transition: transform 0.3s ease;
+      }
+    </style>
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-6 bg-background dark:text-white"
+    >
+      <div class="bg-card rounded-lg shadow-lg p-4 dark:text-white">
+        <img
+          src="https://placehold.co/300x200"
+          alt="Generative art"
+          class="rounded-md mb-2"
+        />
+        <h3 class="text-lg font-semibold">Diseño Web:</h3>
+        <p>Páginas web optimizadas para SEO y dispositivos móviles.</p>
+      </div>
+      <div class="bg-card rounded-lg shadow-lg p-4">
+        <img
+          src="https://placehold.co/300x200"
+          alt="Height"
+          class="rounded-md mb-2"
+        />
+        <h3 class="text-lg font-semibold">Tiendas Virtuales:</h3>
+        <p>Soluciones eCommerce a medida con Shopify y WooCommerce.</p>
+      </div>
+      <div class="bg-card rounded-lg shadow-lg p-4">
+        <img
+          src="https://placehold.co/300x200"
+          alt="Map location"
+          class="rounded-md mb-2"
+        />
+        <h3 class="text-lg font-semibold">Producción de Eventos:</h3>
+        <p>Sonido, pantallas y todo lo necesario para eventos exitosos.</p>
+      </div>
+      <div class="bg-card rounded-lg shadow-lg p-4">
+        <img
+          src="https://placehold.co/300x200"
+          alt="Pride flag"
+          class="rounded-md mb-2"
+        />
+        <div class="flex items-center">
+          <h3 class="text-lg font-semibold">Edición de Video Profesional</h3>
+        </div>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam quos
+          dolor molestiae repudiandae! Tempora ut sit harum earum doloribus
+          natus explicabo quasi nulla itaque illo iure, reiciendis assumenda
+          velit cumque?
+        </p>
+        <p>
+          Want your own Pride flag?
+          <a href="#" class="text-primary">I have a tutorial all about it!</a>
+        </p>
+      </div>
+      <div class="bg-card rounded-lg shadow-lg p-4">
+        <img
+          src="https://placehold.co/300x200"
+          alt="Conference talks"
+          class="rounded-md mb-2"
+        />
+        <h3 class="text-lg font-semibold">
+          I've spoken at a number of conferences!
+        </h3>
+        <p>Here are some of my favourite talks:</p>
+        <ul class="list-disc pl-5">
+          <li>
+            <a href="#" class="text-primary">The Secret Mechanisms of CSS</a>
+          </li>
+          <li><a href="#" class="text-primary">The Case for Whimsy</a></li>
+          <li>
+            <a href="#" class="text-primary"
+              >Explorable Explanations with React</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="bg-card rounded-lg shadow-lg p-4">
+        <img
+          src="https://placehold.co/300x200"
+          alt="Online courses"
+          class="rounded-md mb-2"
+        />
+        <h3 class="text-lg font-semibold">
+          My courses are a bit different from other online courses.
+        </h3>
+        <p>
+          You won’t sit back and watch me code. I’ll challenge you with lots of
+          exercises and interactivity, and you’ll build an intuition that will
+          help you for the rest of your developer career. 🌱
+        </p>
+        <p>
+          25,648 <span class="text-primary">devEopers</span> have registered for
+          my courses:
+        </p>
+        <ul class="list-disc pl-5">
+          <li><a href="#" class="text-primary">The Joy of React</a></li>
+          <li>
+            <a href="#" class="text-primary">CSS for JavaScript Developers</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <a
+      href="https://wa.me/5491131697768"
+      class="fixed bottom-0 right-0 p-2"
+      target="_blank"
+    >
+      <img
+        src="icon/whatsapp.png"
+        alt="WhatsApp Icon"
+        class="w-12 h-12 transition duration-300 ease-in-out transform hover:scale-110"
+      />
+    </a>
+    <!-- Footer corregido -->
+    <footer
+      class="bg-background dark:bg-black text-foreground dark:text-white py-5 transition-colors duration-500"
+    >
+      <div
+        class="container mx-auto flex flex-col md:flex-row justify-between items-center md:items-start"
+      >
+        <div
+          class="mb-6 md:mb-0 flex flex-col items-center md:items-start text-center md:text-left"
+        >
+          <a href="index.html">
+            <!-- Logo en modo claro -->
+            <img
+              src="icon/Resiilience-NEGRO.png"
+              alt="Resilience Logo"
+              class="max-w-full h-20 w-auto object-contain scale-150 dark:hidden"
+            />
+            <!-- Logo en modo oscuro -->
+            <img
+              src="icon/Resiilience-BLANCO.png"
+              alt="Resilience Logo"
+              class="max-w-full h-20 w-auto object-contain scale-150 hidden dark:block"
+            />
+          </a>
+          <p class="text-gray-500 dark:text-gray-400">
+            Lorem ipsum dolor sit amet consectetur et temporibus?
+          </p>
+        </div>
+
+        <div class="mb-6 md:mb-0 text-center md:text-left">
+          <h5 class="font-bold mb-2 text-foreground dark:text-white">
+            Servicios
+          </h5>
+          <ul>
+            <li>
+              <a
+                href="servicios.html"
+                class="text-gray-500 dark:text-gray-400 hover:text-white"
+                >Mercado Envío Flex</a
+              >
+            </li>
+            <li>
+              <a
+                href="servicios.html"
+                class="text-gray-500 dark:text-gray-400 hover:text-white"
+                >Envíos eCommerce</a
+              >
+            </li>
+            <li>
+              <a
+                href="servicios.html"
+                class="text-gray-500 dark:text-gray-400 hover:text-white"
+                >Servicio de Mensajería</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h5 class="font-bold mb-2 text-foreground dark:text-white">
+            Contacto
+          </h5>
+          <ul>
+            <li>
+              <a
+                href="https://wa.me/5491131697768"
+                target="_blank"
+                class="flex justify-center md:justify-start items-center space-x-2"
+              >
+                <img
+                  src="icon/whatsappnavbarblue.png"
+                  alt="WhatsApp Logo"
+                  class="h-6 w-6"
+                />
+                <span class="text-foreground dark:text-white">WhatsApp</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/resiliencemediagroup/"
+                target="_blank"
+                class="flex justify-center md:justify-start items-center space-x-2"
+              >
+                <img
+                  src="icon/instagramform.png"
+                  alt="Instagram Logo"
+                  class="h-6 w-6"
+                />
+                <span class="text-foreground dark:text-white">Instagram</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="text-center mt-4 text-gray-500 dark:text-gray-400">
+        &copy; 2024 Logistica Kronner. Todos los derechos reservados.
+      </p>
+    </footer>
+    <script>
+      function toggleAnswer(button) {
+        // Alterna la visibilidad de la respuesta
+        const answer = button.nextElementSibling;
+        answer.classList.toggle("hidden");
+
+        // Alterna la rotación de la flecha
+        const arrow = button.querySelector(".arrow");
+        arrow.classList.toggle("rotate-90");
+      }
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>
