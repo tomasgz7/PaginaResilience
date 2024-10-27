@@ -121,94 +121,36 @@
       />
       <!-- Video por defecto -->
     </video>
-    <nav
-      id="navbar"
-      class="fixed top-0 left-0 w-full bg-background dark:bg-black transition-colors duration-500 h-24 z-50"
-    >
-      <!-- Contenido del navbar -->
-      <div
-        class="container mx-auto flex justify-between items-center p-4 relative z-10"
-      >
+    <nav id="navbar" class="fixed top-0 left-0 w-full bg-background dark:bg-black transition-colors duration-500 h-24 z-50">
+      <div class="container mx-auto flex justify-between items-center p-4 relative z-10">
         <a href="index.html">
-          <!-- Logo en modo claro -->
-          <img
-            src="/icon/Resiilience-NEGRO.png"
-            alt="RESILIENCE Logo"
-            class="max-w-full h-20 w-auto object-contain scale-150 dark:hidden"
-          />
-          <!-- Logo en modo oscuro -->
-          <img
-            src="/icon/Resiilience-BLANCO.png"
-            alt="RESILIENCE Logo"
-            class="max-w-full h-20 w-auto object-contain scale-150 hidden dark:block"
-          />
+          <img src="/icon/Resiilience-NEGRO.png" alt="RESILIENCE Logo" class="max-w-full h-20 w-auto object-contain scale-150 dark:hidden" />
+          <img src="/icon/Resiilience-BLANCO.png" alt="RESILIENCE Logo" class="max-w-full h-20 w-auto object-contain scale-150 hidden dark:block" />
         </a>
-        <ul class="flex space-x-6">
-          <ul class="flex">
-            <li class="mr-8">
-              <!-- Ajusta el margen según sea necesario -->
-              <a
-                href="index.html"
-                class="text-lg text-foreground dark:text-white hover:text-blue-700 dark:hover:text-blue-700"
-                >Inicio</a
-              >
-            </li>
-            <li class="mr-8">
-              <a
-                href="nosotros.html"
-                class="text-lg text-foreground dark:text-white hover:text-blue-700 dark:hover:text-blue-700"
-                >Nosotros</a
-              >
-            </li>
-            <li class="mr-8">
-              <a
-                href="servicios.html"
-                class="text-lg text-foreground dark:text-white hover:text-blue-700 dark:hover:text-blue-700"
-                >Servicios</a
-              >
-            </li>
-            <li>
-              <a
-                href="contacto.html"
-                class="text-lg text-foreground dark:text-white hover:text-blue-700 dark:hover:text-blue-700"
-                >Contacto</a
-              >
-            </li>
-          </ul>
+        
+        <!-- Botón de menú hamburguesa -->
+        <button id="menu-toggle" class="md:hidden flex items-center p-2 text-foreground dark:text-white hover:text-blue-700 dark:hover:text-blue-700">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+    
+        <ul class="hidden md:flex space-x-6" id="menu">
+          <li class="mr-8"><a href="index.html" class="text-lg text-foreground dark:text-white hover:text-blue-700 dark:hover:text-blue-700">Inicio</a></li>
+          <li class="mr-8"><a href="nosotros.html" class="text-lg text-foreground dark:text-white hover:text-blue-700 dark:hover:text-blue-700">Nosotros</a></li>
+          <li class="mr-8"><a href="servicios.html" class="text-lg text-foreground dark:text-white hover:text-blue-700 dark:hover:text-blue-700">Servicios</a></li>
+          <li><a href="contacto.html" class="text-lg text-foreground dark:text-white hover:text-blue-700 dark:hover:text-blue-700">Contacto</a></li>
         </ul>
-        <!-- Botón de WhatsApp y de cambio de tema (día/noche) se mantienen iguales -->
-        <a
-          id="contact-button"
-          href="https://wa.me/5491131697768"
-          class="text-foreground dark:text-white bg-transparent hover:bg-blue-700 px-4 py-2 rounded-lg flex items-center gap-2 transform transition-transform duration-300 hover:scale-105"
-          target="_blank"
-        >
-          <img
-            src="icon/whatsapp icon blue.svg"
-            alt="WhatsApp Logo"
-            class="h-5 w-5"
-          />
+    
+        <a id="contact-button" href="https://wa.me/5491131697768" class="text-foreground dark:text-white bg-transparent hover:bg-blue-700 px-4 py-2 rounded-lg flex items-center gap-2 transform transition-transform duration-300 hover:scale-105" target="_blank">
+          <img src="icon/whatsapp icon blue.svg" alt="WhatsApp Logo" class="h-5 w-5" />
           ¿Hablamos?
         </a>
-        <!-- Botón de cambio de tema -->
-        <button
-          id="theme-toggle"
-          class="text-foreground dark:text-white bg-transparent px-4 py-2 rounded-lg flex items-center gap-2"
-        >
-          <img
-            id="sun-icon"
-            src="icon/icons8-sol-48.png"
-            alt="Sun Icon"
-            class="h-6 w-6 transition-transform duration-500"
-          />
-          <img
-            id="moon-icon"
-            src="icon/icon-moon.png"
-            alt="Moon Icon"
-            class="h-5 w-5 hidden dark:block transition-transform duration-500"
-          />
+    
+        <button id="theme-toggle" class="text-foreground dark:text-white bg-transparent px-4 py-2 rounded-lg flex items-center gap-2">
+          <img id="sun-icon" src="icon/icons8-sol-48.png" alt="Sun Icon" class="h-6 w-6 transition-transform duration-500" />
+          <img id="moon-icon" src="icon/icon-moon.png" alt="Moon Icon" class="h-5 w-5 hidden dark:block transition-transform duration-500" />
         </button>
-
         <style>
           /* CSS para la animación de rotación */
           .rotate {
@@ -216,6 +158,16 @@
             transform: rotate(360deg);
           }
         </style>
+      </div>
+    
+      <!-- Menú desplegable -->
+      <div class="md:hidden hidden absolute w-full top-24 left-0 bg-white dark:bg-black shadow-lg" id="mobile-menu">
+        <ul class="flex flex-col space-y-4 p-4 bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800">
+          <li><a href="index.html" class="block text-lg text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-700">Inicio</a></li>
+          <li><a href="nosotros.html" class="block text-lg text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-700">Nosotros</a></li>
+          <li><a href="servicios.html" class="block text-lg text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-700">Servicios</a></li>
+          <li><a href="contacto.html" class="block text-lg text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-700">Contacto</a></li>
+        </ul>
       </div>
     </nav>
 
@@ -398,7 +350,7 @@
     >
       <div class="bg-card rounded-lg shadow-lg p-4 dark:text-white">
         <img
-          src="https://placehold.co/300x200"
+          src="icon/images/pexels-luis-gomes-166706-546819.jpg"
           alt="Generative art"
           class="rounded-md mb-2"
         />
@@ -407,7 +359,7 @@
       </div>
       <div class="bg-card rounded-lg shadow-lg p-4">
         <img
-          src="https://placehold.co/300x200"
+          src="icon/images/pexels-asphotograpy-230544.jpg"
           alt="Height"
           class="rounded-md mb-2"
         />
@@ -416,191 +368,19 @@
       </div>
       <div class="bg-card rounded-lg shadow-lg p-4">
         <img
-          src="https://placehold.co/300x200"
+          src="icon/images/pexels-ninosouza-1870438.jpg"
           alt="Map location"
           class="rounded-md mb-2"
         />
         <h3 class="text-lg font-semibold">Producción de Eventos:</h3>
         <p>Sonido, pantallas y todo lo necesario para eventos exitosos.</p>
       </div>
-      <div class="bg-card rounded-lg shadow-lg p-4">
-        <img
-          src="https://placehold.co/300x200"
-          alt="Pride flag"
-          class="rounded-md mb-2"
-        />
-        <div class="flex items-center">
-          <h3 class="text-lg font-semibold">Edición de Video Profesional</h3>
-        </div>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam quos
-          dolor molestiae repudiandae! Tempora ut sit harum earum doloribus
-          natus explicabo quasi nulla itaque illo iure, reiciendis assumenda
-          velit cumque?
-        </p>
-        <p>
-          Want your own Pride flag?
-          <a href="#" class="text-primary">I have a tutorial all about it!</a>
-        </p>
-      </div>
-      <div class="bg-card rounded-lg shadow-lg p-4">
-        <img
-          src="https://placehold.co/300x200"
-          alt="Conference talks"
-          class="rounded-md mb-2"
-        />
-        <h3 class="text-lg font-semibold">
-          I've spoken at a number of conferences!
-        </h3>
-        <p>Here are some of my favourite talks:</p>
-        <ul class="list-disc pl-5">
-          <li>
-            <a href="#" class="text-primary">The Secret Mechanisms of CSS</a>
-          </li>
-          <li><a href="#" class="text-primary">The Case for Whimsy</a></li>
-          <li>
-            <a href="#" class="text-primary"
-              >Explorable Explanations with React</a
-            >
-          </li>
-        </ul>
-      </div>
-      <div class="bg-card rounded-lg shadow-lg p-4">
-        <img
-          src="https://placehold.co/300x200"
-          alt="Online courses"
-          class="rounded-md mb-2"
-        />
-        <h3 class="text-lg font-semibold">
-          My courses are a bit different from other online courses.
-        </h3>
-        <p>
-          You won’t sit back and watch me code. I’ll challenge you with lots of
-          exercises and interactivity, and you’ll build an intuition that will
-          help you for the rest of your developer career. 🌱
-        </p>
-        <p>
-          25,648 <span class="text-primary">devEopers</span> have registered for
-          my courses:
-        </p>
-        <ul class="list-disc pl-5">
-          <li><a href="#" class="text-primary">The Joy of React</a></li>
-          <li>
-            <a href="#" class="text-primary">CSS for JavaScript Developers</a>
-          </li>
-        </ul>
-      </div>
-    </div>
 
-    <a
-      href="https://wa.me/5491131697768"
-      class="fixed bottom-0 right-0 p-2"
-      target="_blank"
-    >
-      <img
-        src="icon/whatsapp.png"
-        alt="WhatsApp Icon"
-        class="w-12 h-12 transition duration-300 ease-in-out transform hover:scale-110"
-      />
-    </a>
-    <!-- Footer corregido -->
-    <footer
-      class="bg-background dark:bg-black text-foreground dark:text-white py-5 transition-colors duration-500"
-    >
-      <div
-        class="container mx-auto flex flex-col md:flex-row justify-between items-center md:items-start"
-      >
-        <div
-          class="mb-6 md:mb-0 flex flex-col items-center md:items-start text-center md:text-left"
-        >
-          <a href="index.html">
-            <!-- Logo en modo claro -->
-            <img
-              src="icon/Resiilience-NEGRO.png"
-              alt="Resilience Logo"
-              class="max-w-full h-20 w-auto object-contain scale-150 dark:hidden"
-            />
-            <!-- Logo en modo oscuro -->
-            <img
-              src="icon/Resiilience-BLANCO.png"
-              alt="Resilience Logo"
-              class="max-w-full h-20 w-auto object-contain scale-150 hidden dark:block"
-            />
-          </a>
-          <p class="text-gray-500 dark:text-gray-400">
-            Lorem ipsum dolor sit amet consectetur et temporibus?
-          </p>
-        </div>
-
-        <div class="mb-6 md:mb-0 text-center md:text-left">
-          <h5 class="font-bold mb-2 text-foreground dark:text-white">
-            Servicios
-          </h5>
-          <ul>
-            <li>
-              <a
-                href="servicios.html"
-                class="text-gray-500 dark:text-gray-400 hover:text-white"
-                >Mercado Envío Flex</a
-              >
-            </li>
-            <li>
-              <a
-                href="servicios.html"
-                class="text-gray-500 dark:text-gray-400 hover:text-white"
-                >Envíos eCommerce</a
-              >
-            </li>
-            <li>
-              <a
-                href="servicios.html"
-                class="text-gray-500 dark:text-gray-400 hover:text-white"
-                >Servicio de Mensajería</a
-              >
-            </li>
-          </ul>
-        </div>
-
-        <div class="text-center md:text-left">
-          <h5 class="font-bold mb-2 text-foreground dark:text-white">
-            Contacto
-          </h5>
-          <ul>
-            <li>
-              <a
-                href="https://wa.me/5491131697768"
-                target="_blank"
-                class="flex justify-center md:justify-start items-center space-x-2"
-              >
-                <img
-                  src="icon/whatsappnavbarblue.png"
-                  alt="WhatsApp Logo"
-                  class="h-6 w-6"
-                />
-                <span class="text-foreground dark:text-white">WhatsApp</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.instagram.com/resiliencemediagroup/"
-                target="_blank"
-                class="flex justify-center md:justify-start items-center space-x-2"
-              >
-                <img
-                  src="icon/instagramform.png"
-                  alt="Instagram Logo"
-                  class="h-6 w-6"
-                />
-                <span class="text-foreground dark:text-white">Instagram</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <p class="text-center mt-4 text-gray-500 dark:text-gray-400">
-        &copy; 2024 Logistica Kronner. Todos los derechos reservados.
-      </p>
-    </footer>
+      <script>
+        document.getElementById("menu-toggle").addEventListener("click", function() {
+          document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+      </script>
     <script>
       function toggleAnswer(button) {
         // Alterna la visibilidad de la respuesta

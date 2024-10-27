@@ -7,10 +7,8 @@ window.addEventListener("scroll", function () {
   if (window.scrollY > 50) {
     navbar.classList.remove("bg-transparent");
     navbar.classList.add("bg-blue-600"); // Cambia a un color de fondo cuando se desplaza
-    navLinks.forEach((link) => {
-      link.classList.add("text-white");
-    });
-    contactButton.classList.add("text-white");
+    navLinks.forEach((link) => {});
+    contactButton.classList.add("text-black");
   } else {
     navbar.classList.remove("bg-blue-600");
     navbar.classList.add("bg-transparent"); // Mantiene el fondo transparente
