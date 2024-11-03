@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -251,25 +251,59 @@
               >Contacto</a
             >
           </li>
+          <li>
+            <a
+              href="https://wa.me/5491131697768"
+              class="text-foreground dark:text-white bg-transparent px-4 py-2 rounded-lg flex items-center gap-2 transform transition-transform duration-300 hover:scale-105"
+              target="_blank"
+            >
+              <img
+                src="icon/whatsapp icon blue.svg"
+                alt="WhatsApp Logo"
+                class="h-5 w-5"
+              />
+              ¿Hablamos?
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
-    <!-- Video de fondo en pantalla completa -->
-    <div class="relative h-screen pt-24">
+    <div class="relative h-screen pt-24 flex items-center justify-center">
       <video
         autoplay
         muted
         loop
         class="absolute inset-0 w-full h-full object-cover z-0"
       >
-        <source src="icon/QuienesSomos.mp4" type="video/mp4" />
+        <source src="icon/Portadaqs.webm" type="video/webm" />
       </video>
+      <div class="relative z-10 text-center text-white p-8">
+        <h1 class="text-5xl font-bold mb-8">
+          Bienvenido a Resilience Media Group
+        </h1>
+        <a href="#section-contenido" class="inline-block text-center mt-4 p-4">
+          <svg
+            class="w-10 h-10 animate-bounce text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </a>
+      </div>
     </div>
 
     <!-- Contenido principal debajo del video -->
     <section class="relative z-10 bg-background text-foreground py-12">
       <div class="container mx-auto text-center">
-        <h1 class="text-4xl font-bold mb-6">
+        <h1 class="text-4xl font-bold mb-6" id="section-contenido">
           Deleganos tu trabajo
           <span class="font-bold text-primary">con confianza</span>
         </h1>
@@ -298,7 +332,7 @@
           <div class="bg-card p-6 rounded-lg shadow-md">
             <h3 class="text-xl font-bold mt-4">Experiencia y trayectoria</h3>
             <p>
-              Con más de dos décadas en diseño web y marketing online, hemos
+              Con más de 5 años en diseño web y marketing online, hemos
               perfeccionado nuestras habilidades y adquirido un profundo
               conocimiento del mercado. Estamos preparados para abordar
               cualquier proyecto.

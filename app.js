@@ -5,13 +5,12 @@ window.addEventListener("scroll", function () {
   const navLinks = document.querySelectorAll("nav a");
 
   if (window.scrollY > 50) {
-    navbar.classList.remove("bg-transparent");
     navbar.classList.add("bg-blue-600"); // Cambia a un color de fondo cuando se desplaza
     navLinks.forEach((link) => {});
     contactButton.classList.add("text-black");
   } else {
     navbar.classList.remove("bg-blue-600");
-    navbar.classList.add("bg-transparent"); // Mantiene el fondo transparente
+
     navLinks.forEach((link) => {
       link.classList.remove("text-white"); // Cambia el color del texto según sea necesario
     });
