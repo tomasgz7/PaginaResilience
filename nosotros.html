@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script type="text/javascript">
+      window.tailwind.config = {
+        darkMode: ["class"],
+        theme: {
+          extend: {
+            colors: {
+              border: "hsl(var(--border))",
+              input: "hsl(var(--input))",
+              ring: "hsl(var(--ring))",
+              background: "hsl(var(--background))",
+              foreground: "hsl(var(--foreground))",
+              primary: {
+                DEFAULT: "hsl(var(--primary))",
+                foreground: "hsl(var(--primary-foreground))",
+              },
+              secondary: {
+                DEFAULT: "hsl(var(--secondary))",
+                foreground: "hsl(var(--secondary-foreground))",
+              },
+              destructive: {
+                DEFAULT: "hsl(var(--destructive))",
+                foreground: "hsl(var(--destructive-foreground))",
+              },
+              muted: {
+                DEFAULT: "hsl(var(--muted))",
+                foreground: "hsl(var(--muted-foreground))",
+              },
+              accent: {
+                DEFAULT: "hsl(var(--accent))",
+                foreground: "hsl(var(--accent-foreground))",
+              },
+              popover: {
+                DEFAULT: "hsl(var(--popover))",
+                foreground: "hsl(var(--popover-foreground))",
+              },
+              card: {
+                DEFAULT: "hsl(var(--card))",
+                foreground: "hsl(var(--card-foreground))",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer base {
+        :root {
+          --background: 0 0% 100%;
+          --foreground: 240 10% 3.9%;
+          --card: 0 0% 100%;
+          --card-foreground: 240 10% 3.9%;
+          --popover: 0 0% 100%;
+          --popover-foreground: 240 10% 3.9%;
+          --primary: 240 5.9% 10%;
+          --primary-foreground: 0 0% 98%;
+          --secondary: 240 4.8% 95.9%;
+          --secondary-foreground: 240 5.9% 10%;
+          --muted: 240 4.8% 95.9%;
+          --muted-foreground: 240 3.8% 46.1%;
+          --accent: 240 4.8% 95.9%;
+          --accent-foreground: 240 5.9% 10%;
+          --destructive: 0 84.2% 60.2%;
+          --destructive-foreground: 0 0% 98%;
+          --border: 240 5.9% 90%;
+          --input: 240 5.9% 90%;
+          --ring: 240 5.9% 10%;
+          --radius: 0.5rem;
+        }
+        .dark {
+          --background: 240 10% 3.9%;
+          --foreground: 0 0% 98%;
+          --card: 240 10% 3.9%;
+          --card-foreground: 0 0% 98%;
+          --popover: 240 10% 3.9%;
+          --popover-foreground: 0 0% 98%;
+          --primary: 0 0% 98%;
+          --primary-foreground: 240 5.9% 10%;
+          --secondary: 240 3.7% 15.9%;
+          --secondary-foreground: 0 0% 98%;
+          --muted: 240 3.7% 15.9%;
+          --muted-foreground: 240 5% 64.9%;
+          --accent: 240 3.7% 15.9%;
+          --accent-foreground: 0 0% 98%;
+          --destructive: 0 62.8% 30.6%;
+          --destructive-foreground: 0 0% 98%;
+          --border: 240 3.7% 15.9%;
+          --input: 240 3.7% 15.9%;
+          --ring: 240 4.9% 83.9%;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-background text-foreground relative">
+    <!-- Navbar -->
+    <nav
+      id="navbar"
+      class="fixed top-0 left-0 w-full bg-background dark:bg-black transition-colors duration-500 h-24 z-50"
+    >
+      <div
+        class="container mx-auto flex justify-between items-center p-2 relative z-10"
+      >
+        <a href="index.html">
+          <img
+            src="/icon/Resiilience-NEGRO.png"
+            alt="RESILIENCE Logo"
+            class="max-w-full h-20 w-auto object-contain scale-150 dark:hidden"
+          />
+          <img
+            src="/icon/Resiilience-BLANCO.png"
+            alt="RESILIENCE Logo"
+            class="max-w-full h-20 w-auto object-contain scale-150 hidden dark:block"
+          />
+        </a>
+
+        <!-- Botón de menú hamburguesa -->
+        <button
+          id="menu-toggle"
+          class="md:hidden flex items-center p-2 text-foreground dark:text-white hover:text-blue-700 dark:hover:text-blue-700"
+        >
+        <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M2 6C2 5.44772 2.44772 5 3 5H21C21.5523 5 22 5.44772 22 6C22 6.55228 21.5523 7 21 7H3C2.44772 7 2 6.55228 2 6Z"
+          fill="currentColor"
+        />
+        <path
+          d="M2 12.0322C2 11.4799 2.44772 11.0322 3 11.0322H21C21.5523 11.0322 22 11.4799 22 12.0322C22 12.5845 21.5523 13.0322 21 13.0322H3C2.44772 13.0322 2 12.5845 2 12.0322Z"
+          fill="currentColor"
+        />
+        <path
+          d="M3 17.0645C2.44772 17.0645 2 17.5122 2 18.0645C2 18.6167 2.44772 19.0645 3 19.0645H21C21.5523 19.0645 22 18.6167 22 18.0645C22 17.5122 21.5523 17.0645 21 17.0645H3Z"
+          fill="currentColor"
+        />
+      </svg>
+        </button>
+
+        <ul class="hidden md:flex space-x-6" id="menu">
+          <li class="mr-8">
+            <a
+              href="index.html"
+              class="text-lg text-foreground dark:text-white hover:text-blue-700 dark:hover:text-blue-700"
+              >Inicio</a
+            >
+          </li>
+          <li class="mr-8">
+            <a
+              href="nosotros.html"
+              class="text-lg text-foreground dark:text-white hover:text-blue-700 dark:hover:text-blue-700"
+              >Nosotros</a
+            >
+          </li>
+          <li class="mr-8">
+            <a
+              href="servicios.html"
+              class="text-lg text-foreground dark:text-white hover:text-blue-700 dark:hover:text-blue-700"
+              >Servicios</a
+            >
+          </li>
+          <li>
+            <a
+              href="contacto.html"
+              class="text-lg text-foreground dark:text-white hover:text-blue-700 dark:hover:text-blue-700"
+              >Contacto</a
+            >
+          </li>
+        </ul>
+
+        <a
+          id="contact-button"
+          href="https://wa.me/5491131697768"
+          class="hidden md:flex text-foreground dark:text-white bg-transparent hover:bg-blue-700 px-4 py-2 rounded-lg items-center gap-2 transform transition-transform duration-300 hover:scale-105"
+          target="_blank"
+        >
+          <img
+            src="icon/wppblue.svg"
+            alt="WhatsApp Logo"
+            class="h-5 w-5"
+          />
+          ¿Hablamos?
+        </a>
+
+        <button
+          id="theme-toggle"
+          class="hidden md:flex text-foreground dark:text-white bg-transparent px-4 py-2 rounded-lg items-center gap-2"
+        >
+          <img
+            id="sun-icon"
+            src="icon/icon-sun.png"
+            alt="Sun Icon"
+            class="h-6 w-6 transition-transform duration-500"
+          />
+          <img
+            id="moon-icon"
+            src="icon/icon-moon.png"
+            alt="Moon Icon"
+            class="h-5 w-5 hidden dark:block transition-transform duration-500"
+          />
+        </button>
+
+        <style>
+          /* CSS para la animación de rotación */
+          .rotate {
+            transition: transform 0.5s;
+            transform: rotate(360deg);
+          }
+        </style>
+      </div>
+
+      <!-- Menú desplegable -->
+      <div
+        class="md:hidden hidden absolute w-full top-24 left-0 bg-white dark:bg-black shadow-lg"
+        id="mobile-menu"
+      >
+        <ul
+          class="flex flex-col space-y-4 p-4 bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800"
+        >
+          <li>
+            <a
+              href="index.html"
+              class="block text-lg text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-700"
+              >Inicio</a
+            >
+          </li>
+          <li>
+            <a
+              href="nosotros.html"
+              class="block text-lg text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-700"
+              >Nosotros</a
+            >
+          </li>
+          <li>
+            <a
+              href="servicios.html"
+              class="block text-lg text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-700"
+              >Servicios</a
+            >
+          </li>
+          <li>
+            <a
+              href="contacto.html"
+              class="block text-lg text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-700"
+              >Contacto</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://wa.me/5491131697768"
+              class="text-foreground dark:text-white bg-transparent px-4 py-2 rounded-lg flex items-center gap-2 transform transition-transform duration-300 hover:scale-105"
+              target="_blank"
+            >
+              <img
+                src="icon/whatsapp icon blue.svg"
+                alt="WhatsApp Logo"
+                class="h-5 w-5"
+              />
+              ¿Hablamos?
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="relative h-screen pt-24 flex items-center justify-center">
+      <video
+        autoplay
+        muted
+        loop
+        class="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="icon/Portadaqs.webm" type="video/webm" />
+      </video>
+      <div class="relative z-10 text-center text-white p-8">
+        <h1 class="text-5xl font-bold mb-8">
+          Bienvenido a Resilience Media Group
+        </h1>
+        <a href="#section-contenido" class="inline-block text-center mt-4 p-4">
+          <svg
+            class="w-10 h-10 animate-bounce text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Contenido principal debajo del video -->
+    <section class="relative z-10 bg-background text-foreground py-12">
+      <div class="container mx-auto text-center">
+        <h1 class="text-4xl font-bold mb-6" id="section-contenido">
+          Deleganos tu trabajo
+          <span class="font-bold text-primary">con confianza</span>
+        </h1>
+        <p class="text-lg mb-8">
+          En Resilience Media Group , somos un equipo apasionado por el mundo
+          digital y la creatividad, dedicados a brindar soluciones innovadoras
+          para empresas y emprendedores que buscan destacar en el mercado. Nos
+          especializamos en servicios de diseño gráfico, marketing digital,
+          comercio electrónico y producción audiovisual, además de ofrecer
+          soporte en sonido para eventos, charlas y capacitaciones
+          personalizadas. Nuestro objetivo es ayudarte a conectar con tu
+          audiencia, potenciando cada proyecto con estrategias que fusionan
+          profesionalismo y tecnología de vanguardia. Valoramos la honestidad y
+          la excelencia en cada trabajo, y nos guía el compromiso de hacer
+          crecer tu marca con integridad y pasión.
+        </p>
+        <p class="mb-12">
+          Comprendemos que muchas agencias tienen un equipo reducido y, por lo
+          tanto, a menudo se ven obligadas a subcontratar proyectos de diseño
+          web y marketing digital. Por esta razón, nos dirigimos a usted con la
+          finalidad de ofrecerle nuestros servicios de diseño web en WordPress y
+          gestión de campañas publicitarias en Google Ads y Meta Ads.
+        </p>
+        <h2 class="text-2xl font-semibold mb-6">¿Qué nos diferencia?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="bg-card p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-bold mt-4">Experiencia y trayectoria</h3>
+            <p>
+              Con más de 5 años en diseño web y marketing online, hemos
+              perfeccionado nuestras habilidades y adquirido un profundo
+              conocimiento del mercado. Estamos preparados para abordar
+              cualquier proyecto.
+            </p>
+          </div>
+          <div class="bg-card p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-bold mt-4">Calidad y profesionalismo</h3>
+            <p>
+              Nos enorgullece ofrecer resultados de alta calidad en todos
+              nuestros servicios. Tratamos cada proyecto con meticulosidad y
+              atención al detalle, superando tus expectativas.
+            </p>
+          </div>
+          <div class="bg-card p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-bold mt-4">Trabajo en colaboración</h3>
+            <p>
+              Valoramos la relación sólida y transparente con nuestros socios.
+              Nos consideramos parte de tu equipo y trabajamos contigo para
+              lograr objetivos comunes y construir soluciones exitosas.
+            </p>
+          </div>
+          <div class="bg-card p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-bold mt-4">Confidencialidad total</h3>
+            <p>
+              Mantenemos una estricta confidencialidad en cada proyecto. El
+              contacto y la comunicación son directamente contigo, protegiendo
+              la información sensible de tus clientes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-black text-white py-8">
+      <div
+        class="container mx-auto flex flex-col md:flex-row justify-between items-center md:items-start px-6 md:px-0 space-y-8 md:space-y-0"
+      >
+        <!-- Logo y descripción, centrado en dispositivos pequeños -->
+        <div
+          class="flex flex-col items-center md:items-start text-center md:text-left space-y-4"
+        >
+          <img
+            src="icon/Resiilience-BLANCO.png"
+            alt="Resilience Logo"
+            class="max-w-full h-32 w-auto"
+          />
+        </div>
+
+        <!-- Servicios -->
+        <div class="text-center md:text-left space-y-4">
+          <h5 class="font-bold text-lg">Servicios</h5>
+          <ul class="space-y-2">
+            <li>
+              <a href="servicios.html" class="text-gray-400 hover:text-white"
+                >Diseño Web</a
+              >
+            </li>
+            <li>
+              <a href="servicios.html" class="text-gray-400 hover:text-white"
+                >Eventos Profesionales</a
+              >
+            </li>
+            <li>
+              <a href="servicios.html" class="text-gray-400 hover:text-white"
+                >Contenidos Audiovisuales</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contacto -->
+        <div class="text-center md:text-left space-y-4">
+          <h5 class="font-bold text-lg">Contacto</h5>
+          <ul class="space-y-3">
+            <li>
+              <a
+                href="https://wa.me/5491131697768"
+                target="_blank"
+                class="flex justify-center md:justify-start items-center space-x-2 text-gray-400 hover:text-white"
+              >
+                <img
+                  src="icon/wppblue.svg"
+                  alt="WhatsApp Logo"
+                  class="h-6 w-6"
+                />
+                <span>WhatsApp</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/resiliencemediagroup/"
+                target="_blank"
+                class="flex justify-center md:justify-start items-center space-x-2 text-gray-400 hover:text-white"
+              >
+                <img
+                  src="icon/instablue.svg"
+                  alt="Instagram Logo"
+                  class="h-6 w-6"
+                />
+                <span>Instagram</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>
