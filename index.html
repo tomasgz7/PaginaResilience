@@ -3,7 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< HEAD
     
+=======
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script
+      src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js"
+      defer
+      init
+    ></script>
+    <script type="text/javascript">
+      window.tailwind.config = {
+        darkMode: ["class"],
+        theme: {
+          extend: {
+            colors: {
+              border: "hsl(var(--border))",
+              input: "hsl(var(--input))",
+              ring: "hsl(var(--ring))",
+              background: "hsl(var(--background))",
+              foreground: "hsl(var(--foreground))",
+              primary: {
+                DEFAULT: "hsl(var(--primary))",
+                foreground: "hsl(var(--primary-foreground))",
+              },
+              secondary: {
+                DEFAULT: "hsl(var(--secondary))",
+                foreground: "hsl(var(--secondary-foreground))",
+              },
+              destructive: {
+                DEFAULT: "hsl(var(--destructive))",
+                foreground: "hsl(var(--destructive-foreground))",
+              },
+              muted: {
+                DEFAULT: "hsl(var(--muted))",
+                foreground: "hsl(var(--muted-foreground))",
+              },
+              accent: {
+                DEFAULT: "hsl(var(--accent))",
+                foreground: "hsl(var(--accent-foreground))",
+              },
+              popover: {
+                DEFAULT: "hsl(var(--popover))",
+                foreground: "hsl(var(--popover-foreground))",
+              },
+              card: {
+                DEFAULT: "hsl(var(--card))",
+                foreground: "hsl(var(--card-foreground))",
+              },
+            },
+          },
+        },
+      };
+    </script>
+>>>>>>> a45107edd242f38edfedecb07a2ac57e82775b2e
     <style type="text/tailwindcss">
       @layer base {
         :root {
@@ -78,6 +131,7 @@
           id="menu-toggle"
           class="md:hidden flex items-center p-2 text-foreground dark:text-white hover:text-blue-700 dark:hover:text-blue-700"
         >
+<<<<<<< HEAD
         <svg
         width="24"
         height="24"
@@ -98,6 +152,22 @@
           fill="currentColor"
         />
       </svg>
+=======
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+>>>>>>> a45107edd242f38edfedecb07a2ac57e82775b2e
         </button>
 
         <ul class="hidden md:flex space-x-6" id="menu">
@@ -138,7 +208,11 @@
           target="_blank"
         >
           <img
+<<<<<<< HEAD
             src="icon/wppblue.svg"
+=======
+            src="icon/whatsapp icon blue.svg"
+>>>>>>> a45107edd242f38edfedecb07a2ac57e82775b2e
             alt="WhatsApp Logo"
             class="h-5 w-5"
           />
@@ -151,7 +225,11 @@
         >
           <img
             id="sun-icon"
+<<<<<<< HEAD
             src="icon/icon-sun.png"
+=======
+            src="icon/icons8-sol-48.png"
+>>>>>>> a45107edd242f38edfedecb07a2ac57e82775b2e
             alt="Sun Icon"
             class="h-6 w-6 transition-transform duration-500"
           />
@@ -272,9 +350,15 @@
       <div class="bg-card rounded-lg shadow-lg p-4 dark:text-white">
         <a href="servicios.html">
           <img
+<<<<<<< HEAD
             src="icon/images/pexels-luis-gomes-166706-546819.webp"
             alt="Generative art"
             
+=======
+            src="icon/images/pexels-luis-gomes-166706-546819.png"
+            alt="Generative art"
+            loading="lazy"
+>>>>>>> a45107edd242f38edfedecb07a2ac57e82775b2e
             class="rounded-md mb-2"
           />
         </a>
@@ -284,9 +368,15 @@
       <div class="bg-card rounded-lg shadow-lg p-4">
         <a href="servicios.html">
           <img
+<<<<<<< HEAD
             src="icon/images/pexels-asphotograpy-230544.webp"
             alt="Height"
            
+=======
+            src="icon/images/pexels-asphotograpy-230544.png"
+            alt="Height"
+            loading="lazy"
+>>>>>>> a45107edd242f38edfedecb07a2ac57e82775b2e
             class="rounded-md mb-2"
           />
         </a>
@@ -296,9 +386,15 @@
       <div class="bg-card rounded-lg shadow-lg p-4">
         <a href="servicios.html">
           <img
+<<<<<<< HEAD
             src="icon/images/pexels-ninosouza-1870438.webp"
             alt="Map location"
             
+=======
+            src="icon/images/pexels-ninosouza-1870438.png"
+            alt="Map location"
+            loading="lazy"
+>>>>>>> a45107edd242f38edfedecb07a2ac57e82775b2e
             class="rounded-md mb-2"
           />
         </a>
@@ -307,6 +403,7 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     <div class="flex flex-col items-center justify-center bg-gray-900 p-6">
       <h2 class="text-white text-3xl font-bold mb-4">
         Preguntas Frecuentes para Resilience Media Group
@@ -315,42 +412,91 @@
         <div class="bg-gray-800 rounded-lg shadow-md">
           <button
             class="flex justify-between w-full p-4 text-left text-gray-200 hover:bg-gray-700 focus:outline-none"
+=======
+    <div
+      class="flex flex-col items-center justify-center bg-background p-6"
+      style="background-color: #020617"
+    >
+      <h2 class="text-white text-3xl font-bold text-foreground mb-4">
+        Preguntas Frecuentes para Resilience Media Group
+      </h2>
+      <div class="w-full max-w-md space-y-4">
+        <div class="bg-card rounded-lg shadow-md">
+          <button
+            class="flex justify-between w-full p-4 text-left text-muted-foreground hover:bg-muted/10 focus:outline-none"
+            style="background-color: #0d1828"
+>>>>>>> a45107edd242f38edfedecb07a2ac57e82775b2e
             onclick="toggleAnswer(this)"
           >
             <span>¿Qué tipo de páginas web diseñan?</span>
             <span class="arrow">&gt;</span>
           </button>
+<<<<<<< HEAD
           <div class="hidden p-4 text-gray-300">
+=======
+          <div
+            class="hidden p-4 text-muted-foreground"
+            style="background-color: #0b1422"
+          >
+>>>>>>> a45107edd242f38edfedecb07a2ac57e82775b2e
             Diseñamos páginas web personalizadas y adaptadas a las necesidades
             de cada cliente. Desde sitios web informativos hasta tiendas en
             línea completas, nos enfocamos en crear diseños modernos, intuitivos
             y optimizados para todos los dispositivos.
           </div>
         </div>
+<<<<<<< HEAD
         <div class="bg-gray-800 rounded-lg shadow-md">
           <button
             class="flex justify-between w-full p-4 text-left text-gray-200 hover:bg-gray-700 focus:outline-none"
+=======
+        <div class="bg-card rounded-lg shadow-md">
+          <button
+            class="flex justify-between w-full p-4 text-left text-muted-foreground hover:bg-muted/10 focus:outline-none"
+            style="background-color: #0d1828"
+>>>>>>> a45107edd242f38edfedecb07a2ac57e82775b2e
             onclick="toggleAnswer(this)"
           >
             <span>¿Qué servicios incluyen en la producción de eventos?</span>
             <span class="arrow">&gt;</span>
           </button>
+<<<<<<< HEAD
           <div class="hidden p-4 text-gray-300">
+=======
+          <div
+            class="hidden p-4 text-muted-foreground"
+            style="background-color: #0b1422"
+          >
+>>>>>>> a45107edd242f38edfedecb07a2ac57e82775b2e
             Ofrecemos una amplia gama de servicios para la producción de
             eventos, incluyendo planificación y organización, diseño de
             escenografía, iluminación, sonido, grabación audiovisual, y gestión
             de invitados.
           </div>
         </div>
+<<<<<<< HEAD
         <div class="bg-gray-800 rounded-lg shadow-md">
           <button
             class="flex justify-between w-full p-4 text-left text-gray-200 hover:bg-gray-700 focus:outline-none"
+=======
+        <div class="bg-card rounded-lg shadow-md">
+          <button
+            class="flex justify-between w-full p-4 text-left text-muted-foreground hover:bg-muted/10 focus:outline-none"
+            style="background-color: #0d1828"
+>>>>>>> a45107edd242f38edfedecb07a2ac57e82775b2e
             onclick="toggleAnswer(this)"
           >
             <span>¿Qué tipo de producciones audiovisuales realizan?</span>
             <span class="arrow">&gt;</span>
           </button>
+<<<<<<< HEAD
           <div class="hidden p-4 text-gray-300">
+=======
+          <div
+            class="hidden p-4 text-muted-foreground"
+            style="background-color: #0b1422"
+          >
+>>>>>>> a45107edd242f38edfedecb07a2ac57e82775b2e
             Realizamos producciones audiovisuales de alta calidad para diversos
             fines, como videos corporativos, musicales, comerciales,
             documentales, y contenido para redes sociales. Contamos con un
@@ -358,6 +504,7 @@
             producción, desde la preproducción hasta la postproducción.
           </div>
         </div>
+<<<<<<< HEAD
         <div class="bg-gray-800 rounded-lg shadow-md">
           <button
             class="flex justify-between w-full p-4 text-left text-gray-200 hover:bg-gray-700 focus:outline-none"
@@ -388,6 +535,53 @@
             <span class="arrow">&gt;</span>
           </button>
           <div class="hidden p-4 text-gray-300">
+=======
+        <div class="bg-card rounded-lg shadow-md">
+          <button
+            class="flex justify-between w-full p-4 text-left text-muted-foreground hover:bg-muted/10 focus:outline-none"
+            style="background-color: #0d1828"
+            onclick="toggleAnswer(this)"
+          >
+            <span
+              >¿Cómo puedo obtener un presupuesto para una tienda virtual?</span
+            >
+            <span class="arrow">&gt;</span>
+          </button>
+          <div
+            class="hidden p-4 text-muted-foreground"
+            style="background-color: #0b1422"
+          >
+            Para obtener un presupuesto personalizado, te invitamos a
+            contactarnos a través de nuestro
+            <a href="contacto.html" class="text-blue-500 hover:text-blue-700"
+              >Formulario</a
+            >
+            o por teléfono (<a
+              href="https://wa.me/5491131697768"
+              target="_blank"
+              class="text-blue-500 hover:text-blue-700"
+              >+54 9 11 3169-7768</a
+            >). Necesitaremos información sobre tus productos, características
+            deseadas para la tienda, y cualquier requerimiento especial.
+          </div>
+        </div>
+        <div class="bg-card rounded-lg shadow-md">
+          <button
+            class="flex justify-between w-full p-4 text-left text-muted-foreground hover:bg-muted/10 focus:outline-none"
+            style="background-color: #0d1828"
+            onclick="toggleAnswer(this)"
+          >
+            <span
+              >¿Cuáles son los beneficios de elegir Resilience Media Group para
+              mis proyectos?</span
+            >
+            <span class="arrow">&gt;</span>
+          </button>
+          <div
+            class="hidden p-4 text-muted-foreground"
+            style="background-color: #0b1422"
+          >
+>>>>>>> a45107edd242f38edfedecb07a2ac57e82775b2e
             Al elegir Resilience Media Group, te beneficiarás de nuestra
             experiencia, creatividad y compromiso con la excelencia. Ofrecemos
             soluciones personalizadas, atención al cliente de primer nivel, y
@@ -396,20 +590,31 @@
         </div>
       </div>
     </div>
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> a45107edd242f38edfedecb07a2ac57e82775b2e
     <style>
       /* Clase para rotar la flecha hacia abajo */
       .rotate-90 {
         transform: rotate(90deg);
         transition: transform 0.3s ease;
       }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> a45107edd242f38edfedecb07a2ac57e82775b2e
       /* Estilo normal de la flecha */
       .arrow {
         transition: transform 0.3s ease;
       }
     </style>
+<<<<<<< HEAD
     
+=======
+>>>>>>> a45107edd242f38edfedecb07a2ac57e82775b2e
 
     <!-- Footer corregido -->
     <footer class="bg-black text-white py-8">
@@ -422,7 +627,11 @@
         >
           <img
             src="icon/Resiilience-BLANCO.png"
+<<<<<<< HEAD
             
+=======
+            loading="lazy"
+>>>>>>> a45107edd242f38edfedecb07a2ac57e82775b2e
             alt="Resilience Logo"
             class="max-w-full h-32 w-auto"
           />
@@ -461,9 +670,15 @@
                 class="flex justify-center md:justify-start items-center space-x-2 text-gray-400 hover:text-white"
               >
                 <img
+<<<<<<< HEAD
                   src="icon/wppblue.svg"
                   alt="WhatsApp Logo"
                   
+=======
+                  src="icon/whatsappnavbarblue.png"
+                  alt="WhatsApp Logo"
+                  loading="lazy"
+>>>>>>> a45107edd242f38edfedecb07a2ac57e82775b2e
                   class="h-6 w-6"
                 />
                 <span>WhatsApp</span>
@@ -476,9 +691,15 @@
                 class="flex justify-center md:justify-start items-center space-x-2 text-gray-400 hover:text-white"
               >
                 <img
+<<<<<<< HEAD
                   src="icon/instablue.svg"
                   alt="Instagram Logo"
                   
+=======
+                  src="icon/instagramform.png"
+                  alt="Instagram Logo"
+                  loading="lazy"
+>>>>>>> a45107edd242f38edfedecb07a2ac57e82775b2e
                   class="h-6 w-6"
                 />
                 <span>Instagram</span>
@@ -488,6 +709,7 @@
         </div>
       </div>
     </footer>
+<<<<<<< HEAD
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     
     <script type="text/javascript">
@@ -534,6 +756,9 @@
         },
       };
     </script>
+=======
+
+>>>>>>> a45107edd242f38edfedecb07a2ac57e82775b2e
     <script>
       document
         .getElementById("menu-toggle")
@@ -553,10 +778,13 @@
       }
     </script>
     <script src="app.js"></script>
+<<<<<<< HEAD
     <script
       src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js"
       defer
       init
     ></script>
+=======
+>>>>>>> a45107edd242f38edfedecb07a2ac57e82775b2e
   </body>
 </html>
